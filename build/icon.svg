@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="feather-cream" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#fff8e9" />
+      <stop offset="0.6" stop-color="#f5ead4" />
+      <stop offset="1" stop-color="#e5d4b5" />
+    </linearGradient>
+    <linearGradient id="feather-copper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e5b076" />
+      <stop offset="0.55" stop-color="#c98b52" />
+      <stop offset="1" stop-color="#9b5f31" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="#1e232b" />
+  <rect x="11" y="11" width="490" height="490" rx="107" fill="none" stroke="#39404a" stroke-width="2" />
+
+  <g transform="rotate(-32 256 256)">
+    <path
+      d="M256 56
+         C314 96 346 172 346 248
+         C346 328 324 396 274 448
+         C266 456 261 462 256 470
+         C251 462 246 456 238 448
+         C188 396 166 328 166 248
+         C166 172 198 96 256 56 Z"
+      fill="url(#feather-cream)"
+    />
+
+    <g stroke="#1e232b" stroke-width="15" stroke-linecap="round">
+      <path d="M170 170 L228 196" />
+      <path d="M164 250 L226 274" />
+      <path d="M172 330 L230 348" />
+      <path d="M342 170 L284 196" />
+      <path d="M348 250 L286 274" />
+      <path d="M340 330 L282 348" />
+    </g>
+
+    <path d="M256 78 L256 452" stroke="#c98b52" stroke-width="12" stroke-linecap="round" />
+
+    <path
+      d="M256 438
+         C270 448 280 462 280 478
+         L256 506
+         L232 478
+         C232 462 242 448 256 438 Z"
+      fill="url(#feather-copper)"
+    />
+    <circle cx="256" cy="468" r="5.5" fill="#1e232b" />
+    <path d="M256 474 L256 500" stroke="#1e232b" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>
