@@ -13,6 +13,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "start": "npm run build && electron .",
     "package": "npm run build && electron-builder",
+    "package:win": "npm run build && electron-builder --win",
     "icon": "electron scripts/render-icon.cjs"
   },
   "dependencies": {
@@ -35,7 +36,7 @@
     "wait-on": "^8.0.1"
   },
   "build": {
-    "appId": "com.scrittura.app",
+    "appId": "com.scrittura.desktop",
     "productName": "Scrittura",
     "directories": {
       "output": "release",
@@ -44,8 +45,7 @@
     "files": [
       "dist/**/*",
       "dist-electron/**/*",
-      "build/icon.png",
-      "package.json"
+      "build/**/*"
     ],
     "extraResources": [
       {
@@ -55,13 +55,20 @@
     ],
     "win": {
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
       ],
       "icon": "build/icon.ico"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
       "artifactName": "Scrittura-Setup-${version}.${ext}",
       "shortcutName": "Scrittura"
     },

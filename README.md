@@ -7,11 +7,25 @@ e senza dover caricare nulla online.
 Tutto ciò che scrivi resta sul tuo computer. Non servono account, non ci sono pubblicità e nessuna
 storia lascia la tua scrivania.
 
+## Installazione su Windows
+
+1. Apri la cartella in cui hai scaricato **Scrittura**.
+2. Fai doppio clic su **Scrittura-Setup-1.0.0.exe**.
+3. Segui le indicazioni dell'installazione. Al termine troverai l'icona di Scrittura sul Desktop.
+4. Fai doppio clic sull'icona del Desktop per aprire l'app.
+
+Non serve il terminale: l'installazione crea anche una voce nel menu Start e ti permette di scegliere
+la cartella in cui installare Scrittura.
+
 ## I miei racconti
 
 La biblioteca è il punto di partenza. Ogni racconto ha la sua scheda con il titolo, il genere, lo
 stato di lavorazione, una breve sinossi, il numero di capitoli e personaggi, il conteggio delle
 parole e la data dell'ultima modifica.
+
+![La biblioteca di Scrittura con la storia di esempio](docs/screenshots/home.png)
+
+*La biblioteca: copertina, colore e dettagli rendono ogni racconto riconoscibile a colpo d'occhio.*
 
 Da qui puoi:
 
@@ -52,6 +66,10 @@ La barra di formattazione ti permette di dare ritmo alla pagina con:
 Il conteggio delle parole resta preciso anche quando usi la formattazione. I tuoi capitoli precedenti
 continuano ad aprirsi esattamente come li avevi lasciati.
 
+![L'editor dei capitoli con formattazione, tag e posizione nella timeline](docs/screenshots/capitoli.png)
+
+*L'editor dei capitoli: formattazione, tag facoltativi e posizione nella timeline.*
+
 ### Tag facoltativi
 
 Puoi aggiungere ai capitoli tag come *Bozza*, *Da rivedere*, *Colpo di scena* o inventarne di nuovi,
@@ -70,6 +88,10 @@ subito.
 
 La cronologia racconta la forma della storia. Puoi guardarla **in orizzontale** o **in verticale**,
 scegliendo la vista che preferisci dal comando dedicato.
+
+![La cronologia orizzontale con i momenti collegati e i controlli dello zoom](docs/screenshots/timeline.png)
+
+*La cronologia orizzontale: momenti collegati, punti colorati e tre livelli di zoom.*
 
 Ci sono tre livelli di zoom:
 
@@ -96,6 +118,10 @@ Tutto viene salvato automaticamente.
 ## Schede personaggio
 
 Ogni personaggio ha una scheda completa, con un ritratto e tutto ciò che serve per conoscerlo davvero.
+
+![La scheda personaggio di Lorenzo Valli con ritratto, dati fisici e tratti psicologici](docs/screenshots/personaggi.png)
+
+*Le schede personaggio: ritratto, dati fisici e tratti psicologici.*
 
 - **Informazioni generali**: nome, ruolo ed età.
 - **Foto / Ritratto**: carica un'immagine dal tuo computer; Scrittura la conserva nella propria
