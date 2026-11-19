@@ -81,8 +81,7 @@ export function CharactersView({ story, updateStory }: CharactersViewProps) {
             Schede personaggio
           </h2>
           <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-ink-soft">
-            Ritratti, dettagli fisici e moventi interiori: tutto ciò che serve per tenere i tuoi
-            personaggi vivi sulla pagina.
+        
           </p>
         </div>
         <Button variant="primary" onClick={addCharacter}>
@@ -96,7 +95,7 @@ export function CharactersView({ story, updateStory }: CharactersViewProps) {
           <EmptyState
             icon="users"
             title="Nessun personaggio, per ora"
-            description="Una storia prende vita attraverso le persone che la abitano. Crea la prima scheda personaggio e comincia da un nome, un volto, un desiderio."
+            description="Crea la prima scheda personaggio."
             action={
               <Button variant="primary" onClick={addCharacter}>
                 <Icon name="plus" size={15} />
@@ -162,7 +161,7 @@ export function CharactersView({ story, updateStory }: CharactersViewProps) {
             </span>
             <span className="mt-3 font-serif text-lg text-ink">Nuovo personaggio</span>
             <span className="mt-1.5 max-w-[200px] text-xs leading-relaxed text-ink-soft">
-              Dai un volto e una voce a chi abita la tua storia.
+            
             </span>
           </button>
         </div>
@@ -293,8 +292,7 @@ function CharacterSheet({ story, character, onBack, onDelete, onPatch }: Charact
             ) : null}
           </div>
           <p className="mt-3 text-[11px] leading-relaxed text-ink-faint">
-            L'immagine viene copiata nell'archivio locale di Scrittura, così il ritratto non si
-            perderà mai.
+            L'immagine viene copiata nell'archivio locale di Scrittura.
           </p>
           {portraitError ? (
             <p className="mt-2 text-[11px] font-medium text-danger">{portraitError}</p>

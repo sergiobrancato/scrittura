@@ -176,8 +176,8 @@ export function HomeView({ onOpenStory }: HomeViewProps) {
               I miei racconti
             </h1>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-soft">
-              Storie, capitoli e personaggi custoditi sul tuo computer. Nessun account, nessun
-              cloud: solo la tua scrittura.
+              Storie, capitoli e personaggi sul tuo computer. Nessun account, nessun
+              cloud, gratis per sempre.
             </p>
           </div>
 
@@ -281,7 +281,7 @@ export function HomeView({ onOpenStory }: HomeViewProps) {
               <EmptyState
                 icon="feather"
                 title="La tua biblioteca è ancora vuota"
-                description="Ogni storia comincia da una pagina bianca. Crea il tuo primo racconto oppure esplora la storia di esempio per scoprire come funziona Scrittura."
+                description="Crea il tuo primo racconto oppure ripristina la storia di esempio per scoprire come funziona Scrittura."
                 action={
                   <div className="flex flex-wrap justify-center gap-2">
                     <Button variant="primary" onClick={() => setNewStoryOpen(true)}>
@@ -496,7 +496,7 @@ function StoryCard({
           <p className="mt-2.5 line-clamp-3 text-[13px] leading-relaxed text-ink-soft">
             {story.synopsis || (
               <span className="italic text-ink-faint">
-                Nessuna sinossi. La storia aspetta ancora di essere raccontata.
+                Nessuna sinossi. Aggiungine una.
               </span>
             )}
           </p>

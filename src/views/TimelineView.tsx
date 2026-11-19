@@ -393,7 +393,7 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
         <div>
           <p className="label">La sequenza della storia</p>
           <h2 className="mt-1.5 font-serif text-3xl leading-tight tracking-tight text-ink">
-            Cronologia
+            Timeline
           </h2>
           <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-ink-soft">
             Ogni capitolo con un momento assegnato si collega qui in automatico. Esplora la storia
@@ -559,7 +559,7 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
           </button>
 
           <span className="ml-auto hidden text-[10.5px] text-ink-faint lg:block">
-            Trascina lo sfondo per spostarti nella timeline
+            Tasto destro per trascinare lo sfondo per spostarti nella timeline, tasto sinistro per fermarti. 
           </span>
         </div>
       </div>

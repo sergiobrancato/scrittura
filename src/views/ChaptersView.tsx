@@ -374,7 +374,7 @@ function ChapterEditor({
             onChange={(value) => patchChapter({ timelineLabel: value })}
           />
           <p className="mt-1.5 text-[11px] leading-relaxed text-ink-faint">
-            Scegli un momento esistente o scrivine uno nuovo: apparirà subito nella cronologia.
+            Scegli un momento esistente o scrivine uno nuovo: apparirà subito nella timeline.
           </p>
 
           {chapter.timelineLabel && linkedEvent ? (
