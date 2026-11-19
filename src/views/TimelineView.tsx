@@ -568,7 +568,7 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
         <div className="card mt-5">
           <EmptyState
             icon="clock"
-            title="La cronologia è ancora vuota"
+            title="La timeline è ancora vuota"
             description="Assegna un «Momento nella timeline» a un capitolo, oppure aggiungi un evento di ambientazione per raccontare ciò che è accaduto prima della storia."
             action={
               <Button variant="primary" onClick={() => setNewEventOpen(true)}>
@@ -914,14 +914,14 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
         description={
           deleteTarget?.chapterId ? (
             <>
-              Il momento verrà rimosso dalla cronologia. Il capitolo{' '}
+              Il momento verrà rimosso dalla timeline. Il capitolo{' '}
               <span className="font-medium text-ink">
                 «{deleteChapterTitle || 'senza titolo'}»
               </span>{' '}
               resterà intatto, ma perderà il suo riferimento temporale.
             </>
           ) : (
-            "L'evento di ambientazione verrà rimosso dalla cronologia. L'operazione non può essere annullata."
+            "L'evento di ambientazione verrà rimosso dalla timeline. L'operazione non può essere annullata."
           )
         }
         confirmLabel="Elimina momento"

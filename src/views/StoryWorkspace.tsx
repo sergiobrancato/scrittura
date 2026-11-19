@@ -100,7 +100,7 @@ export function StoryWorkspace({ storyId, onBack }: StoryWorkspaceProps) {
 
   const tabs: Array<{ id: Section; label: string; icon: IconName; count: number }> = [
     { id: 'chapters', label: 'Capitoli', icon: 'book', count: story.chapters.length },
-    { id: 'timeline', label: 'Cronologia', icon: 'clock', count: story.timeline.length },
+    { id: 'timeline', label: 'Timeline', icon: 'clock', count: story.timeline.length },
     {
       id: 'characters',
       label: 'Schede personaggio',

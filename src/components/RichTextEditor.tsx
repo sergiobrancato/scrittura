@@ -37,7 +37,7 @@ const emptyState: FormatState = {
 export function RichTextEditor({
   value,
   onChange,
-  placeholder = 'Scrivi qui il tuo capitolo. Lasciati guidare dalla storia...',
+  placeholder = 'Scrivi qui...',
 }: RichTextEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const [format, setFormat] = useState<FormatState>(emptyState);
