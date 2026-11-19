@@ -20,9 +20,6 @@ L'installer è incluso nella cartella principale del progetto. Puoi scaricarlo a
 3. Segui le indicazioni dell'installazione. Al termine troverai l'icona di Scrittura sul Desktop.
 4. Fai doppio clic sull'icona del Desktop per aprire l'app.
 
-Non serve il terminale: l'installazione crea anche una voce nel menu Start e ti permette di scegliere
-la cartella in cui installare Scrittura.
-
 ## I miei racconti
 
 La biblioteca è il punto di partenza. Ogni racconto ha la sua scheda con il titolo, il genere, lo
@@ -30,8 +27,6 @@ stato di lavorazione, una breve sinossi, il numero di capitoli e personaggi, il 
 parole e la data dell'ultima modifica.
 
 ![La biblioteca di Scrittura con la storia di esempio](docs/screenshots/home.png)
-
-*La biblioteca: copertina, colore e dettagli rendono ogni racconto riconoscibile a colpo d'occhio.*
 
 Da qui puoi:
 
@@ -41,24 +36,9 @@ Da qui puoi:
 - duplicare un racconto per provare una nuova versione;
 - eliminare una storia, con una conferma prima di procedere.
 
-## Una copertina per ogni storia
-
-Apri **Dettagli del racconto** per dare alla tua storia un'identità visiva.
-
-- **Copertina del libro**: scegli un'immagine dal tuo computer. Scrittura la conserva nella propria
-  raccolta, così la copertina resta al suo posto anche se sposti il file originale. Puoi sostituirla
-  o rimuoverla quando vuoi.
-- **Colore scheda racconto**: scegli una tinta dalla palette editoriale oppure crea il tuo colore
-  personale. Il colore decora la scheda nella biblioteca e diventa la copertina di riserva quando non
-  hai ancora caricato un'immagine.
-
-Se non scegli una copertina, Scrittura ne prepara una elegante con il titolo del racconto e il colore
-che hai scelto.
-
 ## Scrivere i capitoli
 
-L'area di scrittura è pensata per farti sentire a tuo agio: carta chiara, carattere da libro e tanto
-spazio bianco. Ogni capitolo ha il suo titolo, il suo testo e i suoi tag.
+L'area di scrittura è semplice e immediata. Ogni capitolo ha il suo titolo, il suo testo e i suoi tag.
 
 La barra di formattazione ti permette di dare ritmo alla pagina con:
 
