@@ -7,14 +7,14 @@ e senza dover caricare nulla online.
 Tutto ciò che scrivi resta sul tuo computer. Non servono account, non ci sono pubblicità e nessuna
 storia lascia la tua scrivania.
 
-**Scarica l'installer per Windows: [Scrittura-Setup-1.0.1.exe](Scrittura-Setup-1.0.1.exe)**
+**Scarica l'installer per Windows: [Scrittura-Setup-1.0.2.exe](Scrittura-Setup-1.0.2.exe)**
 
 L'installer è incluso nella cartella principale del progetto. Puoi scaricarlo anche dalla
 [pagina delle release](https://github.com/sergiobrancato/scrittura/releases/latest).
 
 ## Installazione su Windows
 
-1. Apri **Scrittura-Setup-1.0.1.exe** dalla cartella principale di Scrittura (oppure scaricalo dal
+1. Apri **Scrittura-Setup-1.0.2.exe** dalla cartella principale di Scrittura (oppure scaricalo dal
    link qui sopra).
 2. Fai doppio clic sul file.
 3. Segui le indicazioni dell'installazione. Al termine troverai l'icona di Scrittura sul Desktop.
@@ -160,3 +160,4 @@ esempio** nella biblioteca.
 5. Quando sei pronto, crea il tuo primo racconto.
 
 Buona scrittura.
+
