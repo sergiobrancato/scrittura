@@ -7,18 +7,16 @@
       content="default-src 'self'; img-src 'self' data: blob: scrittura:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' http://localhost:5173; connect-src 'self' ws://localhost:5173 http://localhost:5173"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F4EDE0" />
-    <title>Scrittura — Bottega di storie</title>
+    <meta name="theme-color" content="#14161A" />
+    <title>Scrittura - Bottega di storie</title>
     <script>
       (function () {
         try {
           var saved = localStorage.getItem('scrittura-theme');
-          var dark = saved
-            ? saved === 'dark'
-            : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = saved === 'light' ? false : true;
           if (dark) document.documentElement.classList.add('dark');
         } catch (e) {
-          /* no saved theme */
+          document.documentElement.classList.add('dark');
         }
       })();
     </script>

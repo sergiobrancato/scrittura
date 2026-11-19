@@ -24,7 +24,7 @@ function initialTheme(): Theme {
   } catch {
     // The renderer may run without storage access in rare environments.
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'dark';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

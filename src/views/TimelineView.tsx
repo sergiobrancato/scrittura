@@ -8,7 +8,6 @@ import {
   type FocusEvent as ReactFocusEvent,
   type FormEvent,
   type MouseEvent as ReactMouseEvent,
-  type PointerEvent as ReactPointerEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
 import type { Chapter, Story, TimelineEvent } from '../shared/types';
@@ -66,7 +65,6 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
   const [dragOverId, setDragOverId] = useState<string | null>(null);
   const [quickEditId, setQuickEditId] = useState<string | null>(null);
   const [hover, setHover] = useState<HoverState | null>(null);
-  const [isPanning, setIsPanning] = useState(false);
 
   useEffect(() => {
     if (!hover) return;
@@ -77,13 +75,6 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const hoverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const panRef = useRef({
-    active: false,
-    startX: 0,
-    startY: 0,
-    scrollLeft: 0,
-    scrollTop: 0,
-  });
 
   useEffect(() => {
     try {
@@ -100,6 +91,34 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
     }
     setHover(null);
   }, [orientation, zoomLevel]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container || orientation !== 'horizontal') return;
+
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+      if (container.scrollWidth <= container.clientWidth) return;
+
+      const atStart = container.scrollLeft <= 0;
+      const atEnd =
+        container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+      if ((atStart && event.deltaY < 0) || (atEnd && event.deltaY > 0)) return;
+
+      event.preventDefault();
+      const delta =
+        event.deltaMode === 1
+          ? event.deltaY * 16
+          : event.deltaMode === 2
+            ? event.deltaY * container.clientWidth
+            : event.deltaY;
+      container.scrollLeft += delta;
+    };
+
+    container.addEventListener('wheel', onWheel, { passive: false });
+    return () => container.removeEventListener('wheel', onWheel);
+  }, [orientation]);
 
   useEffect(() => {
     return () => {
@@ -278,48 +297,6 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
     onFocus: (event: ReactFocusEvent<HTMLElement>) => openHover(eventId, event.currentTarget),
     onBlur: scheduleHoverClose,
   });
-
-  const beginPan = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType !== 'mouse' || event.button !== 0) return;
-    const target = event.target as HTMLElement;
-    if (
-      target.closest(
-        'button, a, input, textarea, select, [contenteditable="true"], [draggable="true"]',
-      )
-    ) {
-      return;
-    }
-    const container = scrollRef.current;
-    if (!container) return;
-    panRef.current = {
-      active: true,
-      startX: event.clientX,
-      startY: event.clientY,
-      scrollLeft: container.scrollLeft,
-      scrollTop: container.scrollTop,
-    };
-    setIsPanning(true);
-    container.setPointerCapture(event.pointerId);
-    event.preventDefault();
-  };
-
-  const movePan = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!panRef.current.active) return;
-    const container = scrollRef.current;
-    if (!container) return;
-    container.scrollLeft = panRef.current.scrollLeft - (event.clientX - panRef.current.startX);
-    container.scrollTop = panRef.current.scrollTop - (event.clientY - panRef.current.startY);
-  };
-
-  const endPan = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!panRef.current.active) return;
-    panRef.current.active = false;
-    setIsPanning(false);
-    const container = scrollRef.current;
-    if (container?.hasPointerCapture(event.pointerId)) {
-      container.releasePointerCapture(event.pointerId);
-    }
-  };
 
   const deleteChapterTitle = deleteTarget?.chapterId
     ? story.chapters.find((chapter) => chapter.id === deleteTarget.chapterId)?.title
@@ -557,10 +534,6 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
               Attiva riordino drag &amp; drop
             </span>
           </button>
-
-          <span className="ml-auto hidden text-[10.5px] text-ink-faint lg:block">
-            Tasto destro per trascinare lo sfondo per spostarti nella timeline, tasto sinistro per fermarti. 
-          </span>
         </div>
       </div>
 
@@ -601,7 +574,6 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
           <div
             ref={scrollRef}
             data-timeline-list
-            title={isPanning ? undefined : 'Trascina lo sfondo per spostarti nella timeline'}
             className={cx(
               'scrollbar-thin',
               orientation === 'horizontal'
@@ -609,13 +581,7 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
                 : 'max-h-[70vh] overflow-x-hidden overflow-y-auto overscroll-contain',
             )}
           >
-            <div
-              onPointerDown={beginPan}
-              onPointerMove={movePan}
-              onPointerUp={endPan}
-              onPointerCancel={endPan}
-              className={cx('min-h-full', isPanning ? 'cursor-grabbing select-none' : '')}
-            >
+            <div className="min-h-full">
               {orientation === 'horizontal' ? (
               <div
                 className="relative px-6 pb-5"
@@ -667,8 +633,10 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
                           <div className="relative h-[210px] w-full">
                             <div
                               className={cx(
-                                'absolute inset-x-0 flex justify-center',
-                                labelAbove ? 'top-3' : 'top-[128px]',
+                                'absolute inset-x-0 flex flex-col items-center',
+                                labelAbove
+                                  ? 'top-0 h-[84px] justify-end'
+                                  : 'top-[128px] justify-start',
                               )}
                             >
                               <button
@@ -767,6 +735,8 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
                     ? (story.chapters.find((item) => item.id === event.chapterId) ?? null)
                     : null;
                   const labelLeft = index % 2 === 0;
+                  const labelClass =
+                    'line-clamp-2 text-[12px] font-medium leading-snug text-ink-soft transition-colors hover:text-ink';
                   return (
                     <div
                       key={event.id}
@@ -774,37 +744,49 @@ export function TimelineView({ story, updateStory, onOpenChapter }: TimelineView
                       data-chapter-id={event.chapterId ?? ''}
                       {...dropHandlers(event.id)}
                       className={cx(
-                        'relative flex min-h-[92px] items-center justify-center rounded-xl transition-colors',
+                        'relative grid min-h-[92px] grid-cols-[minmax(0,1fr)_40px_minmax(0,1fr)] items-center rounded-xl transition-colors',
                         dragOverId === event.id && 'bg-accent-soft',
                       )}
                     >
-                      <div
-                        className={cx(
-                          'absolute w-[42%]',
-                          labelLeft
-                            ? 'right-[calc(50%+22px)] text-right'
-                            : 'left-[calc(50%+22px)] text-left',
-                        )}
-                      >
-                        <button
-                          type="button"
-                          onClick={() => openQuickEdit(event.id)}
-                          {...hoverProps(event.id)}
-                          title={chapter?.title || event.label || 'Momento senza titolo'}
-                          className="line-clamp-2 text-[12px] font-medium leading-snug text-ink-soft transition-colors hover:text-ink"
-                        >
-                          {chapter?.title || event.label || 'Momento senza titolo'}
-                        </button>
+                      <div className="flex min-w-0 items-center justify-end pr-4">
+                        {labelLeft ? (
+                          <button
+                            type="button"
+                            onClick={() => openQuickEdit(event.id)}
+                            {...hoverProps(event.id)}
+                            title={chapter?.title || event.label || 'Momento senza titolo'}
+                            className={cx(labelClass, 'text-right')}
+                          >
+                            {chapter?.title || event.label || 'Momento senza titolo'}
+                          </button>
+                        ) : null}
                       </div>
-                      <div className="relative z-10">{renderDot(event)}</div>
-                      {dragEnabled ? (
-                        <DragHandle
-                          eventId={event.id}
-                          onDragStart={beginDrag}
-                          onDragEnd={endDrag}
-                          className="absolute left-1/2 top-[62%] -translate-x-1/2"
-                        />
-                      ) : null}
+
+                      <div className="relative flex items-center justify-center">
+                        {renderDot(event)}
+                        {dragEnabled ? (
+                          <DragHandle
+                            eventId={event.id}
+                            onDragStart={beginDrag}
+                            onDragEnd={endDrag}
+                            className="absolute left-1/2 top-full mt-1 -translate-x-1/2"
+                          />
+                        ) : null}
+                      </div>
+
+                      <div className="flex min-w-0 items-center justify-start pl-4">
+                        {!labelLeft ? (
+                          <button
+                            type="button"
+                            onClick={() => openQuickEdit(event.id)}
+                            {...hoverProps(event.id)}
+                            title={chapter?.title || event.label || 'Momento senza titolo'}
+                            className={cx(labelClass, 'text-left')}
+                          >
+                            {chapter?.title || event.label || 'Momento senza titolo'}
+                          </button>
+                        ) : null}
+                      </div>
                     </div>
                   );
                 })}

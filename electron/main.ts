@@ -358,7 +358,7 @@ function createWindow(): BrowserWindow {
     minWidth: 1000,
     minHeight: 680,
     title: 'Scrittura — Bottega di storie',
-    backgroundColor: '#f4ede0',
+    backgroundColor: '#14161a',
     icon: iconPath,
     show: false,
     autoHideMenuBar: true,

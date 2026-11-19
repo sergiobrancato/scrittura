@@ -7,14 +7,14 @@ e senza dover caricare nulla online.
 Tutto ciò che scrivi resta sul tuo computer. Non servono account, non ci sono pubblicità e nessuna
 storia lascia la tua scrivania.
 
-**Scarica l'installer per Windows: [Scrittura-Setup-1.0.2.exe](Scrittura-Setup-1.0.2.exe)**
+**Scarica l'installer per Windows: [Scrittura-Setup-1.0.3.exe](Scrittura-Setup-1.0.3.exe)**
 
 L'installer è incluso nella cartella principale del progetto. Puoi scaricarlo anche dalla
 [pagina delle release](https://github.com/sergiobrancato/scrittura/releases/latest).
 
 ## Installazione su Windows
 
-1. Apri **Scrittura-Setup-1.0.2.exe** dalla cartella principale di Scrittura (oppure scaricalo dal
+1. Apri **Scrittura-Setup-1.0.3.exe** dalla cartella principale di Scrittura (oppure scaricalo dal
    link qui sopra).
 2. Fai doppio clic sul file.
 3. Segui le indicazioni dell'installazione. Al termine troverai l'icona di Scrittura sul Desktop.
@@ -79,7 +79,7 @@ continuano ad aprirsi esattamente come li avevi lasciati.
 ### Tag facoltativi
 
 Puoi aggiungere ai capitoli tag come *Bozza*, *Da rivedere*, *Colpo di scena* o inventarne di nuovi,
-scegliendo un colore per ciascuno. I tag servono a ritrovare le scene e a filtrare la cronologia.
+scegliendo un colore per ciascuno. I tag servono a ritrovare le scene e a filtrare la timeline.
 
 ### Il momento nella timeline
 
@@ -87,17 +87,17 @@ Ogni capitolo può essere collegato a un momento della storia, per esempio *Nott
 1924*. Puoi scegliere un momento già esistente o scriverne uno nuovo.
 
 Quando un capitolo è collegato, sotto il campo compare un cursore: **Posizione nella timeline**.
-Trascinalo per spostare il capitolo prima o dopo nella cronologia; la nuova posizione viene applicata
+Trascinalo per spostare il capitolo prima o dopo nella timeline; la nuova posizione viene applicata
 subito.
 
-## La cronologia
+## La timeline
 
-La cronologia racconta la forma della storia. Puoi guardarla **in orizzontale** o **in verticale**,
+La timeline racconta la forma della storia. Puoi guardarla **in orizzontale** o **in verticale**,
 scegliendo la vista che preferisci dal comando dedicato.
 
-![La cronologia orizzontale con i momenti collegati e i controlli dello zoom](docs/screenshots/timeline.png)
+![La timeline orizzontale con i momenti collegati e i controlli dello zoom](docs/screenshots/timeline.png)
 
-*La cronologia orizzontale: momenti collegati, punti colorati e tre livelli di zoom.*
+*La timeline orizzontale: momenti collegati, punti colorati e tre livelli di zoom.*
 
 Ci sono tre livelli di zoom:
 
@@ -110,7 +110,7 @@ Passando il puntatore sui punti delle viste più compatte compare un riepilogo c
 capitolo, il momento e i tag. Un clic apre la **modifica rapida**, dove puoi cambiare il momento, il
 titolo del capitolo collegato e la sintesi dell'evento, oppure saltare direttamente al capitolo.
 
-Nella cronologia puoi anche:
+Nella timeline puoi anche:
 
 - aggiungere eventi di ambientazione non legati a un capitolo, come antefatti o avvenimenti del
   mondo;
@@ -145,7 +145,7 @@ Scegli l'atmosfera che preferisci dalla barra in alto: **Tema chiaro** per la ca
 ## La storia di esempio
 
 Al primo avvio trovi **L'Orologiaio di Vicolo San Marco**, un racconto completo ambientato a Venezia
-nel 1924, con capitoli, personaggi e una cronologia già pronti da esplorare. È il modo più semplice
+nel 1924, con capitoli, personaggi e una timeline già pronti da esplorare. È il modo più semplice
 per vedere Scrittura in azione.
 
 Se elimini la storia di esempio, puoi farla tornare in qualsiasi momento da **Ripristina storia di
@@ -154,10 +154,11 @@ esempio** nella biblioteca.
 ## Consigli per iniziare
 
 1. Apri la storia di esempio e sfoglia i capitoli.
-2. Passa alla cronologia e prova i tre livelli di zoom.
+2. Passa alla timeline e prova i tre livelli di zoom.
 3. Apri una scheda personaggio e guarda come convivono ritratto, dettagli e conflitti interiori.
 4. Torna alla biblioteca, duplica la storia di esempio e prova a cambiare copertina e colore.
 5. Quando sei pronto, crea il tuo primo racconto.
 
 Buona scrittura.
+
 
